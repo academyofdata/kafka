@@ -12,7 +12,8 @@ It is based upon
  * [docker-compose](https://docs.docker.com/compose/install/)
 ## Usage
 (the following steps work in a Linux box with bash shell available)
-it should start with a 
+
+It should start with a 
 ```
 git pull
 ```
@@ -29,6 +30,12 @@ docker-compose up -d
 docker-compose scale kafka=3
 ```
 Once this completes there should be 6 containers running (can be checked with ```docker ps```).
-We can now make use of producer.sh / consumer.sh to write and read messages to a specific topic
+We can now make use of producer.sh / consumer.sh to write and read messages to a specific topic. These scripts have been designed as wrappers over the kafka-console-consumer.sh and kafka-console-producer.sh that come with standard Kafka distribution and they will be run in one container (randomly chosen from the three available)
+
+* producer.sh can receive one or two arguments. If one argument is passed; it should be the topic name; if two arguments are passed it will enable keyed messages
+ ./producer.sh msg -> will publish messages in the 'msg' topic
+ ./producer.sh msg key -> will publish messages in the 'msg' topic, each published message should have the form <key>:<message>
+
+* consumer.sh only has one argument -> the topic it should read from
 
 

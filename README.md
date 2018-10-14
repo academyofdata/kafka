@@ -35,7 +35,16 @@ We can now make use of producer.sh / consumer.sh to write and read messages to a
 * producer.sh can receive one or two arguments. If one argument is passed; it should be the topic name; if two arguments are passed it will enable keyed messages
  ./producer.sh msg -> will publish messages in the 'msg' topic
  ./producer.sh msg key -> will publish messages in the 'msg' topic, each published message should have the form <key>:<message>
-
+```
+./producer.sh msg
+```
+or
+```
+./producer.sh msg usekey
+```
 * consumer.sh only has one argument -> the topic it should read from
+```
+./consumer.sh msg
+```
 
 

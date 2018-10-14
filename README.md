@@ -48,6 +48,6 @@ or
 ```
  
 ## UI
-One of the started containers provides a browser based UI, can be accessed on <hostip>:9000
+One of the started containers provides a browser based UI, can be accessed on [hostip]:9000
 
 

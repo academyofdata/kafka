@@ -51,3 +51,8 @@ or
 One of the started containers provides a browser based UI, can be accessed on [hostip]:9000
 ![Kafka-Rest-UI](https://raw.githubusercontent.com/academyofdata/kafka/master/img/ui.png)
 
+## Generating sample (random) data
+```
+./data-gen.sh | /home/kuser/producer-notty.sh topicforrandomdata
+```
+

@@ -22,6 +22,7 @@ newgrp docker
 and then
 ```
 git clone https://github.com/academyofdata/kafka.git ./kaf
+cd kaf
 ```
 from this repository and once all the files are retrieved a script designed to replace the Kafka Brokers advertised IP with that of the host
 ```

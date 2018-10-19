@@ -19,6 +19,7 @@ sudo apt-get update && sudo apt-get install docker.io git -y
 sudo usermod -aG docker `whoami`
 newgrp docker
 ```
+and then
 ```
 git clone https://github.com/academyofdata/kafka.git ./kaf
 ```

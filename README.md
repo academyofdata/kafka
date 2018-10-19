@@ -13,11 +13,16 @@ It is based upon
 ## Usage
 (the following steps work in a Linux box with bash shell available)
 
-It should start with a 
+It should start with installing docker and git 
 ```
 sudo apt-get update && sudo apt-get install docker.io git -y
 sudo usermod -aG docker `whoami`
 newgrp docker
+```
+then follow with docker-compose installation
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 ```
 and then
 ```

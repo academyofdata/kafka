@@ -7,7 +7,6 @@ wget -qO- https://raw.githubusercontent.com/academyofdata/kafka/master/confluent
 The pre-packaged version of Confluent comes with data-gen installed, otherwise these steps need to be followed
 
 ```
-sudo apt-get update
 cd /opt/confluent
 bin/confluent-hub install confluentinc/kafka-connect-datagen:latest
 bin/confluent stop connect

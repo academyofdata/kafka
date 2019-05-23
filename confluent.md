@@ -21,8 +21,8 @@ gunzip -f $ODIR/ratings.csv.gz
 wget https://raw.githubusercontent.com/academyofdata/data/master/users.csv -O $ODIR/users.csv
 
 #load them in kafka using kafka-console-producer
-bin/kafka-console-producer --topic users --broker-list localhost:9092 < /tmp/users.csv
-bin/kafka-console-producer --topic movies --broker-list localhost:9092 < /tmp/movies.csv
-bin/kafka-console-producer --topic ratings_s --broker-list localhost:9092 < /tmp/ratings_s.csv
-bin/kafka-console-producer --topic ratings --broker-list localhost:9092 < /tmp/ratings.csv
+bin/kafka-console-producer --topic users --broker-list localhost:9092 < $ODIR/users.csv
+bin/kafka-console-producer --topic movies --broker-list localhost:9092 < $ODIR/movies.csv
+bin/kafka-console-producer --topic ratings_s --broker-list localhost:9092 < $ODIR/ratings_s.csv
+bin/kafka-console-producer --topic ratings --broker-list localhost:9092 < $ODIR/ratings.csv
 ```

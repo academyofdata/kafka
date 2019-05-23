@@ -8,7 +8,6 @@ The pre-packaged version of Confluent comes with data-gen installed, otherwise t
 
 ```
 sudo apt-get update
-sudo apt-get install -y jq
 cd /opt/confluent
 bin/confluent-hub install confluentinc/kafka-connect-datagen:latest
 bin/confluent stop connect

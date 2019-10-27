@@ -6,12 +6,14 @@ sudo apt-get install -y default-jre
 ZKIP=$(hostname --ip-address)
 BRKID=0
 SVRIP=${ZKIP}
+ZKSTART=false
 
-while getopts 'z:i:' opz
+while getopts 'kz:i:' opz
 do
   case $opz in
     z) ZKIP=$OPTARG ;;
     i) BRKID=$OPTARG ;;
+    k) ZKSTART=true ;;
   esac
 done
 
@@ -26,10 +28,12 @@ mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
 tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
 cd ${WORKDIR}/kafka
-#start zookeeper
-#the default config listens on _all_ interfaces so we can replace later on with the internal ip instead of localhost
-echo "starting Zookeeper..."
-bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
+if [ "${ZKSTART}" = true] ; then
+    #start zookeeper
+    #the default config listens on _all_ interfaces 
+    echo "starting Zookeeper..."
+    bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
+fi
 
 echo "starting kafka broker..."
 bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${SVRIP}:9092 --override broker.id=${BRKID} --override zookeeper.connect=${ZKIP}:2181 >> kafka.log 2>&1 &

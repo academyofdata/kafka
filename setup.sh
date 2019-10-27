@@ -13,7 +13,7 @@ wget -q -O ${WORKDIR}/kafka.tgz https://www-eu.apache.org/dist/kafka/${KAFKAVER}
 mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
 tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
-cd ${WORKDIR}
+cd ${WORKDIR}/kafka
 #start zookeeper
 #the default config listens on _all_ interfaces so we can replace later on with the internal ip instead of localhost
 echo "starting Zookeeper..."

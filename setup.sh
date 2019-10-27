@@ -1,7 +1,7 @@
 #!/bin/bash
 #install java
 sudo apt-get update
-sudo apt-get install -y default-jre
+sudo apt-get install -y default-jre default-jre-headless
 
 ZKIP=$(hostname --ip-address)
 BRKID=0

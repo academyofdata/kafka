@@ -7,7 +7,7 @@ ZKIP=$(hostname --ip-address)
 BRKID=0
 SVRIP=${ZKIP}
 
-while getopts 'srd:f:' opz
+while getopts 'z:i:' opz
 do
   case $opz in
     z) ZKIP=$OPTARG ;;

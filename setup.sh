@@ -13,6 +13,12 @@ wget -q -O ${WORKDIR}/kafka.tgz https://www-eu.apache.org/dist/kafka/${KAFKAVER}
 mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
 tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
-SVRIP=$(hostname --ip-address)
 cd ${WORKDIR}
+#start zookeeper
+#the default config listens on _all_ interfaces so we can replace later on with the internal ip instead of localhost
+echo "starting Zookeeper..."
+bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
+ZKIP=$(hostname --ip-address)
+echo "replacing ZK IP ..."
+sed -i "s/localhost:2181/${ZKIP}:2181/g" config/server.properties
 

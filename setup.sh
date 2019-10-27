@@ -37,7 +37,7 @@ if [ "${ZKIP}" = "${SVRIP}" ] ; then
     bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
 fi
 
-echo "starting kafka broker..."
+echo "starting kafka broker with ZK ${ZKIP}, listening on ${SVRIP}..."
 bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${SVRIP}:9092 --override broker.id=${BRKID} --override zookeeper.connect=${ZKIP}:2181 >> kafka.log 2>&1 &
 
 

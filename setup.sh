@@ -8,12 +8,11 @@ BRKID=0
 SVRIP=${ZKIP}
 ZKSTART=false
 
-while getopts 'kz:i:' opz
+while getopts 'z:i:' opz
 do
   case $opz in
     z) ZKIP=$OPTARG ;;
     i) BRKID=$OPTARG ;;
-    k) ZKSTART=true ;;
   esac
 done
 
@@ -28,8 +27,8 @@ mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
 tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
 cd ${WORKDIR}/kafka
-if [ "${ZKSTART}" = true] ; then
-    #start zookeeper
+if [ "${ZKIP}" = "${SVRIP}" ] ; then
+    #no zookeeper ip was provided, we start our own locally
     #the default config listens on _all_ interfaces 
     echo "starting Zookeeper..."
     bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &

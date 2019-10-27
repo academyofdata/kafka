@@ -1,7 +1,7 @@
 #!/bin/bash
 #install java
 sudo apt-get update
-sudo apt-get install default-jre
+sudo apt-get install -y default-jre
 
 #download kafka & zookeeper bundle
 KAFKAVER="2.3.0"

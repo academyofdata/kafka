@@ -7,7 +7,7 @@ wget -qO- https://raw.githubusercontent.com/academyofdata/kafka/master/gcloud-se
 
 #start the second node
 #get the internal IP of the first node to use as Zookeeper IP
-ZKIP=$(gcloud compute instances list --filter="name=${NODE}" --format="value(networkInterfaces[0].networkIP)")
+ZKIP=$(gcloud compute instances list --filter labels.zookeeper=true --format="value(networkInterfaces[0].networkIP)")
 
 NODE=kafka02
 

@@ -19,9 +19,7 @@ cd ${WORKDIR}/kafka
 echo "starting Zookeeper..."
 bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
 ZKIP=$(hostname --ip-address)
-echo "replacing ZK IP ..."
-sed -i "s/localhost:2181/${ZKIP}:2181/g" config/server.properties
 echo "starting kafka broker..."
-bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${ZKIP}:9092 broker.id=1 >> kafka.log 2>&1 &
+bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${ZKIP}:9092 broker.id=1 zookeeper.connect=${ZKIP}:2181 >> kafka.log 2>&1 &
 
 

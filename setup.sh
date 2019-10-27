@@ -21,4 +21,5 @@ bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 
 ZKIP=$(hostname --ip-address)
 echo "replacing ZK IP ..."
 sed -i "s/localhost:2181/${ZKIP}:2181/g" config/server.properties
+echo "advertised.listeners=PLAINTEXT://${ZKIP}:9092" >> config/server.properties
 

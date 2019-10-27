@@ -1,5 +1,8 @@
 #!/bin/bash
 #install java
+
+#weird error is caused by missing man dir
+mkdir -p /usr/share/man/man1
 sudo apt-get update
 sudo apt-get install -y default-jre openjdk-11-jre default-jre-headless openjdk-11-jre-headless
 

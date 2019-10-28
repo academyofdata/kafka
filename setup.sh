@@ -4,7 +4,7 @@
 #weird error is caused by missing man dir
 sudo apt-get update
 
-sudo apt-get install -y openjdk-8-jre openjdk-8-jre-headless
+sudo apt-get install -y openjdk-8-jdk
 
 ZKIP=$(hostname --ip-address)
 BRKID=0

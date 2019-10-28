@@ -1,10 +1,9 @@
 #!/bin/bash
 #install java
 
-#weird error is caused by missing man dir
+sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
-
-sudo apt-get install -y openjdk-8-jdk
+sudo apt-get install -y default-jre
 
 ZKIP=$(hostname --ip-address)
 BRKID=0

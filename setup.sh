@@ -19,12 +19,12 @@ do
 done
 
 #download kafka & zookeeper bundle
-KAFKAVER="2.3.0"
+KAFKAVER="2.6.2"
 SCALAVER="2.12"
 WORKDIR="/tmp"
 
 echo "getting archive ..."
-wget -q -O ${WORKDIR}/kafka.tgz https://www-eu.apache.org/dist/kafka/${KAFKAVER}/kafka_${SCALAVER}-${KAFKAVER}.tgz 
+wget -q -O ${WORKDIR}/kafka.tgz https://downloads.apache.org/kafka/${KAFKAVER}/kafka_${SCALAVER}-${KAFKAVER}.tgz 
 mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
 tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz

@@ -19,7 +19,7 @@ echo "waiting for machine ${NODE} to boot..."
 sleep 45
 ZKARG=""
 if [ ! -z "${ZKIP}" ]; then
-  ZKARG = "-z ${ZKIP}"
+  ZKARG="-z ${ZKIP}"
 fi
 echo "running node setup with broker id ${BRKID} and zk ${ZKARG} (zookeeper ${ZKIP})"
 gcloud compute ssh ${NODE} --zone ${ZONE} --command "wget -qO- https://raw.githubusercontent.com/academyofdata/kafka/master/setup.sh | bash -s -- -i ${BRKID} ${ZKARG}" 

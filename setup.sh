@@ -21,13 +21,13 @@ done
 #download kafka & zookeeper bundle
 KAFKAVER="2.6.2"
 SCALAVER="2.12"
-WORKDIR="/tmp"
+WORKDIR="/opt"
 
 echo "getting archive ..."
-wget -q -O ${WORKDIR}/kafka.tgz https://downloads.apache.org/kafka/${KAFKAVER}/kafka_${SCALAVER}-${KAFKAVER}.tgz 
-mkdir -p ${WORKDIR}/kafka
+sudo wget -q -O ${WORKDIR}/kafka.tgz https://downloads.apache.org/kafka/${KAFKAVER}/kafka_${SCALAVER}-${KAFKAVER}.tgz 
+sudo mkdir -p ${WORKDIR}/kafka
 echo "expanding..."
-tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
+sudo tar -C ${WORKDIR}/kafka --strip-components 1 -xzf ${WORKDIR}/kafka.tgz
 cd ${WORKDIR}/kafka
 if [ "${ZKIP}" = "${SVRIP}" ] ; then
     #no zookeeper ip was provided, we start our own locally

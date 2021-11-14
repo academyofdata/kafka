@@ -33,10 +33,10 @@ if [ "${ZKIP}" = "${SVRIP}" ] ; then
     #no zookeeper ip was provided, we start our own locally
     #the default config listens on _all_ interfaces 
     echo "starting Zookeeper..."
-    sudo bin/zookeeper-server-start.sh config/zookeeper.properties >> zookeeper.log 2>&1 &
+    sudo bin/zookeeper-server-start.sh config/zookeeper.properties >> /tmp/zookeeper.log 2>&1 &
 fi
 
 echo "starting kafka broker with ZK ${ZKIP}, listening on ${SVRIP}..."
-sudo bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${SVRIP}:9092 --override broker.id=${BRKID} --override zookeeper.connect=${ZKIP}:2181 >> kafka.log 2>&1 &
+sudo bin/kafka-server-start.sh config/server.properties --override advertised.listeners=PLAINTEXT://${SVRIP}:9092 --override broker.id=${BRKID} --override zookeeper.connect=${ZKIP}:2181 >> /tmp/kafka.log 2>&1 &
 
 

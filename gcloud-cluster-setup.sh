@@ -1,6 +1,6 @@
 #!/bin/bash
 NODE=kafka0
-ZONE=europe-west3-c
+ZONE=europe-west3-b
 MACHINE=n1-standard-1
 INDEX=1
 
